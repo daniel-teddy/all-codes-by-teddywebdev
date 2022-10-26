@@ -1,0 +1,17 @@
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    gap: .75rem;
+}
+.proImg{
+    height: 25rem;
+
+}
+
+
+    
+
+
+
