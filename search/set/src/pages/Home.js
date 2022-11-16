@@ -1,5 +1,6 @@
 import React from "react";
 import JavaImg from "../img/xpost-1.jpg.pagespeed.ic.2GXRfHYjOg.webp";
+import ReactImg from "../img/xpost-2.jpg.pagespeed.ic.DOAToGcDYE.webp"
 import BlogImg from "../img/xpost-3.jpg.pagespeed.ic.UjtolzGXxD.webp";
 import SmallImg from "../img/xwidget-1.jpg.pagespeed.ic.NYJjOYjv_V.webp";
 import Advertisement from "../img/xad-1.jpg.pagespeed.ic.qQJhsdJdF0.webp";
@@ -11,14 +12,14 @@ function Home() {
       <div className="section">
         <div className="container">
           <div className="row">
-            <Post />
+            <Post Img={JavaImg} type="JavaScript" date="March 27,2022" desc="Chrome Extension Protects Against JavaScript Side-Chanel Criminal Attacks" class="post-category cat-2"/>
+            <Post Img={ReactImg} type="React JS" date="February 12,2022" desc="Why is React so popular ?" class="post-category cat-3"/>
 
-            <Post />
           </div>
 
           <div className="row">
             <div className="col-md-12">
-              <SectionTitle />
+              <SectionTitle title="Most Recents"/>
             </div>
 
             <MedPost />
@@ -58,7 +59,7 @@ function Home() {
             <div className="col-md-4">
               <div className="aside-widget">
                 <div className="section-title">
-                  <h2>Most ASked For</h2>
+                <SectionTitle title="Most Asked For"/>
                 </div>
 
                 <PostWidget />
@@ -69,7 +70,7 @@ function Home() {
 
               <div className="aside-widget">
                 <div className="section-title">
-                  <h2>On Youtube</h2>
+                  <SectionTitle title="On Youtube"/>
                 </div>
                 <PostThumb />
                 <PostThumb />
@@ -87,7 +88,7 @@ function Home() {
           <div className="row">
             <div className="col-md-12">
               <div className="section-title text-center">
-                <h2>Discussions</h2>
+                <SectionTitle title="Discussions"/>
               </div>
             </div>
             <MedPost />
@@ -103,7 +104,7 @@ function Home() {
             <div className="col-md-8">
               <div className="row">
                 <div className="col-md-12">
-                  <SectionTitle />
+                  <SectionTitle title="Most Read"/>
                 </div>
                 <PostRow />
                 <PostRow />
@@ -163,7 +164,7 @@ function Home() {
 
               <div className="aside-widget">
               <div className="section-title">
-                  <h2>More</h2>
+              <SectionTitle title="More . . ."/>
                 </div>
                 <div className="tags-widget">
                   <ul>
@@ -188,24 +189,23 @@ export default Home;
 
 /* template of the Big Post */
 
-function Post() {
+function Post(props) {
   return (
     <div className="col-md-6">
       <div className="post post-thumb">
         <a className="post-img" href="https://instagram.com">
-          <img src={JavaImg} alt="" />
+          <img src={props.Img} alt="" />
         </a>
         <div className="post-body">
           <div className="post-meta">
-            <a href="https://category.html" className="post-category cat-2">
-              JavaScript
+            <a href="https://category.html" className={props.class}>
+              {props.type}
             </a>
-            <span className="post-date">March 27, 2022</span>
+            <span className="post-date">{props.date}</span>
           </div>
           <h3 className="post-title">
             <a href="https://blog-post.html">
-              Chrome Extension Protects Against JavaScript Side-Chanel Criminal
-              Attacks
+            {props.desc}
             </a>
           </h3>
         </div>
@@ -215,10 +215,10 @@ function Post() {
 }
 
 
-function SectionTitle() {
+function SectionTitle(props) {
   return (
     <div className="section-title">
-      <h2>Recent Posts</h2>
+      <h2>{props.title}</h2>
     </div>
   );
 }
