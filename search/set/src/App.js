@@ -10,6 +10,7 @@ import Footer from "./Footer/Footer";
 import {Route, Routes, } from 'react-router-dom';
 import About from "./pages/about";
 import Contact from "./pages/contact";
+import Blog from './pages/BlogPost';
 
 
 function App() {
@@ -25,8 +26,10 @@ function App() {
           <Route path="/Reactlib" element={<ReactLib />}></Route>
           <Route path="/webdesign" element={<Webdesign />}></Route>
           <Route path="/Javascript" element={<Javascript />}></Route>
+          {/* extra pages links */}
           <Route path="/about" element={<About />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/blog-post" element={<Blog />}></Route> {/* put Blog Page here */}
         </Routes>
       </div>
       <Footer />

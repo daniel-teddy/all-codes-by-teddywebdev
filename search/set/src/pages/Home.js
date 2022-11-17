@@ -1,10 +1,15 @@
 import React from "react";
+
 import JavaImg from "../img/xpost-1.jpg.pagespeed.ic.2GXRfHYjOg.webp";
 import ReactImg from "../img/xpost-2.jpg.pagespeed.ic.DOAToGcDYE.webp"
 import BlogImg from "../img/xpost-3.jpg.pagespeed.ic.UjtolzGXxD.webp";
 import SmallImg from "../img/xwidget-1.jpg.pagespeed.ic.NYJjOYjv_V.webp";
 import Advertisement from "../img/xad-1.jpg.pagespeed.ic.qQJhsdJdF0.webp";
 import RowImg from "../img/xpost-4.jpg.pagespeed.ic.5tBCPmCJW-.webp";
+
+import { Link, useMatch, useResolvedPath } from 'react-router-dom';
+
+
 
 function Home() {
   return (
@@ -124,9 +129,9 @@ function Home() {
             </div>
             <div className="col-md-4">
               <div className="aside-widget text-center">
-                <a className="aaa" href="advertiser.website">
+                <Link className="aaa" to="advertiser.website">
                   <img src={Advertisement} alt="" />
-                </a>
+                </Link>
               </div>
               <div className="aside-widget">
                 <div className="section-title">
@@ -134,30 +139,18 @@ function Home() {
                 </div>
                 <div className="category-widget">
                   <ul>
-                    <li>
-                      <a href="wepdesign.jsx" className="cat-1">
-                        Web Design
-                        <span>340</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="javascript.jsx" className="cat-2">
-                        JavaScript
-                        <span>74</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="css.jsx" className="cat-3">
-                        CSS
-                        <span>41</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="react.jsx" className="cat-4">
-                        ReactJS
-                        <span>66</span>
-                      </a>
-                    </li>
+                  <CustomLink to="/webdesign" className="cat-1">Web Design
+                      <span>340</span>
+                      </CustomLink>
+                    <CustomLink to="/javascript" className="cat-2">JavaScript
+                      <span>71</span>
+                      </CustomLink>
+                    <CustomLink to="/css" className="cat-4">CSS
+                      <span>41</span>
+                      </CustomLink>
+                      <CustomLink to="/react" className="cat-3">ReactJS
+                      <span>66</span>
+                      </CustomLink>
                   </ul>
                 </div>
               </div>
@@ -168,12 +161,13 @@ function Home() {
                 </div>
                 <div className="tags-widget">
                   <ul>
-                    <li><a href="category.html">Chrome</a></li>
-                    <li><a href="category.html">CSS</a></li>
-                    <li><a href="category.html">Tutorials</a></li>
-                    <li><a href="category.html">BackEnd</a></li>
-                    <li><a href="category.html">Web-Sites</a></li>
-                    <li><a href="category.html">MyGames</a></li>
+                    
+                    <CustomLink to="/arduinos">Arduino</CustomLink>
+                    <CustomLink to="/tutorials">Tutorials</CustomLink>
+                    <CustomLink to="/javascript">JavaScript</CustomLink>
+                    <CustomLink to="/games">Games</CustomLink>
+                    <CustomLink to="/discover">Discover</CustomLink>
+                    <CustomLink to="/chrome">Extensions</CustomLink>
                   </ul>
                 </div>
               </div>
@@ -198,15 +192,15 @@ function Post(props) {
         </a>
         <div className="post-body">
           <div className="post-meta">
-            <a href="https://category.html" className={props.class}>
+            <Link href="/category" className={props.class}>
               {props.type}
-            </a>
+            </Link>
             <span className="post-date">{props.date}</span>
           </div>
           <h3 className="post-title">
-            <a href="https://blog-post.html">
+            <Link href="blog-post">
             {props.desc}
-            </a>
+            </Link>
           </h3>
         </div>
       </div>
@@ -229,21 +223,21 @@ function MedPost() {
   return (
     <div className="col-md-4">
       <div className="post">
-        <a href="www.blog-post.html" className="post-img">
+        <Link href="/blog-post" className="post-img">
           <img src={BlogImg} alt="" />
-        </a>
+        </Link>
         <div className="post-body">
           <div className="post-meta">
-            <a href="www.category.html" className="post-category cat-1">
+            <Link href="/category" className="post-category cat-1">
               Web Design
-            </a>
+            </Link>
             <span className="post-date">March 27, 2022</span>
           </div>
           <h3 className="post-title">
-            <a href="www.blog-post.html">
+            <Link to="/blog-post">
               PageDraw UI Builder Turns Your website Design Mockup Into Xode
               Automaticaly
-            </a>
+            </Link>
           </h3>
         </div>
       </div>
@@ -261,16 +255,16 @@ function Col12() {
       </a>
       <div className="post-body">
         <div className="post-meta">
-          <a href="https://category.html" className="post-category cat-2">
+          <Link to="/javascript" className="post-category cat-2">
             JavaScript
-          </a>
+          </Link>
           <span className="post-date">March 27, 2022</span>
         </div>
         <h3 className="post-title">
-          <a href="https://blog-post.html">
+          <Link to="/blog-post">
             Chrome Extension Protects Against JavaScript Side-Chanel Criminal
             Attacks
-          </a>
+          </Link>
         </h3>
       </div>
     </div>
@@ -287,13 +281,13 @@ function Post2() {
         </a>
         <div className="post-body">
           <div className="post-meta">
-            <a href="https://category.html" className="post-category cat-4">
+            <Link to="blog-ost" className="post-category cat-4">
               CSS
-            </a>
+            </Link>
             <span className="post-date">March 27, 2022</span>
           </div>
           <h3 className="post-title">
-            <a href="https://blog-post.html">CSS Float: A Tutorial</a>
+            <Link to="blog-post">CSS Float: A Tutorial</Link>
           </h3>
         </div>
       </div>
@@ -305,14 +299,14 @@ function Post2() {
 function PostWidget() {
   return (
     <div className="post post-widget">
-      <a href="blog-post.html" className="post-img">
+      <Link to="blog-post" className="post-img">
         <img src={SmallImg} alt="" />
-      </a>
+      </Link>
       <div className="post-body">
         <h3 className="post-title">
-          <a href="blog-post.html">
+          <Link to="/blog-post">
             Tell-A-Tool: Guide to Web Design And Development Tools
-          </a>
+          </Link>
         </h3>
       </div>
     </div>
@@ -327,16 +321,16 @@ function PostThumb() {
       </a>
       <div className="post-body">
         <div className="post-meta">
-          <a href="https://category.html" className="post-category cat-3">
+          <Link to="/reactLib" className="post-category cat-3">
             React JS
-          </a>
+          </Link>
           <span className="post-date">March 27, 2022</span>
         </div>
         <h3 className="post-title">
-          <a href="https://blog-post.html">
+          <Link to="/blog-post">
             Chrome Extension Protects Against JavaScript Side-Chanel Criminal
             Attacks
-          </a>
+          </Link>
         </h3>
       </div>
     </div>
@@ -347,7 +341,7 @@ function PostThumb() {
 function SampleAD() {
   return (
     <div className="aside-widget text-center">
-      <a href="advertiser.website">
+      <a href="https://instagram.com">
         <img src={Advertisement} alt="" className="img-repsosive" />
       </a>
     </div>
@@ -361,9 +355,9 @@ function PostRow() {
   return (
     <div className="col-md-12">
       <div className="post post-row">
-        <a href="blog-post.hmtl" className="post-img">
+        <Link to="blog-post" className="post-img">
           <img src={RowImg} alt="" />
-        </a>
+        </Link>
         <div className="post-body">
           <div className="post-meta">
             <a href="categoty.html" className="post-category cat-2">
@@ -389,3 +383,14 @@ function PostRow() {
   );
 }
 
+function CustomLink({ to, children, ...props }){
+  const resolvedPath = useResolvedPath(to)
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true})
+
+
+  return (
+      <li className={isActive ? ""  : ""}>
+          <Link to={to} {...props}> {children} </Link>
+      </li>
+  )
+}
