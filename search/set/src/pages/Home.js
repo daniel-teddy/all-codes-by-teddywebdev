@@ -157,7 +157,7 @@ function Home() {
 
               <div className="aside-widget">
               <div className="section-title">
-              <SectionTitle title="More . . ."/>
+              <SectionTitle title="More "/>
                 </div>
                 <div className="tags-widget">
                   <ul>
