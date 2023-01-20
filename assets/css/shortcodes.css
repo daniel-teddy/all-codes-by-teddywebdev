@@ -1060,7 +1060,9 @@
 }
 
 .sc-card-product .tags {
-    width           : 49px;
+    width           : fit-content;
+    padding         : .5rem;
+    cursor          : pointer;
     height          : 24px;
     line-height     : 24px;
     text-align      : center;
@@ -2042,9 +2044,10 @@
 }
 
 .sc-card-product .card-title .tags {
-    width           : 49px;
-    height          : 24px;
-    line-height     : 24px;
+    width: fit-content;
+    height: 24px;
+    padding: 0.5rem;
+    cursor: pointer;
     text-align      : center;
     font-weight     : bold;
     font-size       : 12px;
